@@ -1,4 +1,5 @@
 ﻿using EpenseTrackerAPI.Entities;
+using EpenseTrackerAPI.Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 using System.Data;

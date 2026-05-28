@@ -13,10 +13,10 @@ namespace EpenseTrackerAPI.Controllers
     public class ExpenseController(IExpenseServices expenseService) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<List<Expense>>> GetExpenses()
+        public async Task<ActionResult<List<Expense>>> GetExpenses(string? filter, DateTime? startDate, DateTime? endDate)
         {
             var userID = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
-            return Ok(await expenseService.GetAllExpensesAsync(userID));
+            return Ok(await expenseService.GetAllExpensesAsync(userID, filter, startDate, endDate));
         }
 
         [HttpGet("{id}")]

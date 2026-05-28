@@ -1,4 +1,6 @@
-﻿namespace EpenseTrackerAPI.Entities
+﻿using EpenseTrackerAPI.Entities.Models;
+
+namespace EpenseTrackerAPI.Entities
 {
     public class User
     {

@@ -43,11 +43,20 @@ namespace EpenseTrackerAPI.Services
 
         }
 
-        public async Task<List<Expense>> GetAllExpensesAsync(int UserID)
+        public async Task<List<Expense>> GetAllExpensesAsync(int UserID, string? filter, DateTime? startDate, DateTime? endDate)
         {
-            var expense = await context.Expenses
-                .Where(e => e.UserID == UserID).ToListAsync();
-            return expense;
+            var query = context.Expenses.Where(e => e.UserID == UserID);
+
+            query = filter switch
+            {
+                "last_week" => query.Where(e => e.Date >= DateTime.UtcNow.AddDays(-7)),
+                "last_month" => query.Where(e => e.Date >= DateTime.UtcNow.AddMonths(-1)),
+                "last_3_months" => query.Where(e => e.Date >= DateTime.UtcNow.AddMonths(-3)),
+                "custom" when startDate != null && endDate != null => query.Where(e => e.Date >= startDate && e.Date <= endDate),
+                _ => query
+            };
+
+            return await query.ToListAsync();
         }
 
         public async Task<Expense?> GetExpenseByIdAsync(int UserID, int id)

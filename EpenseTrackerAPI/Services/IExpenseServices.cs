@@ -5,7 +5,7 @@ namespace EpenseTrackerAPI.Services
 {
     public interface IExpenseServices
     {
-        Task<List<Expense>> GetAllExpensesAsync(int UserID);
+        Task<List<Expense>> GetAllExpensesAsync(int UserID, string? filter, DateTime? startDate, DateTime? endDate);
         Task<Expense?> GetExpenseByIdAsync(int UserID, int id);
         Task<Expense?> AddExpense(int UserID, ExpenseDTO newExpense);
         Task<Expense?> UpdateExpense(int UserID, int id, ExpenseDTO UpdatedExpense);
