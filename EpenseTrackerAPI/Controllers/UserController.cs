@@ -40,12 +40,5 @@ namespace EpenseTrackerAPI.Controllers
             return token;
             
         }
-        [Authorize]
-        [HttpGet]
-        public IActionResult AuthenticatedOnlyEndpoint()
-        {
-            return Ok("you are authenticated");
-        }
-        
     }
 }

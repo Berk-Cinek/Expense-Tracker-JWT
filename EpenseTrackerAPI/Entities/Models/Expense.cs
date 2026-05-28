@@ -1,4 +1,6 @@
-﻿namespace EpenseTrackerAPI.Entities.Models
+﻿using System.Text.Json.Serialization;
+
+namespace EpenseTrackerAPI.Entities.Models
 {
     public class Expense
     {
@@ -7,6 +9,7 @@
         public Decimal Amount { get; set; }
         public DateTime Date {  get; set; }
         public int UserID { get; set; }
+        [JsonIgnore]
         public User User { get; set; } = null!;
         public ExpenseCatagorie expenseCatagorie { get; set; }
 
