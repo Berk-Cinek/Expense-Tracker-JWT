@@ -1,6 +1,7 @@
 # Expense Tracker API
 
 A RESTful API for tracking personal expenses built with ASP.NET Core and Entity Framework Core.
+https://roadmap.sh/projects/expense-tracker-api
 
 ## Tech Stack
 - ASP.NET Core Web API
@@ -33,3 +34,5 @@ A RESTful API for tracking personal expenses built with ASP.NET Core and Entity 
 2. Update the connection string in `appsettings.json`
 3. Run `dotnet ef database update`
 4. Run `dotnet run`
+
+
